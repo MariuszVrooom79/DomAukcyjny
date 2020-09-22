@@ -1,5 +1,5 @@
 # DomAukcyjny
-Bidder
+
 Tytuł aplikacji: 
 Bidder
 
