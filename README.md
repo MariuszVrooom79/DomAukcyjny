@@ -15,7 +15,9 @@ Instrukcja jak uruchomić:
 pierwszy User 	- Login: Daniel Hasło: test Rola: USER; 
 drugi User 	- Login: Mariusz Hasło: test Rola: Admin. 
 
-2 W Application Properties trzeba zmienić Hasło do Bazy danych PostGreSQL
+Klasą uruchamiająca jest klasa AudioFeelApplication.
+
+2 W application properties (folder resources/templates) trzeba zmienić hasło do Bazy danych PostGreSQL
 
 Autorzy:
 Mariusz Klimkiewicz i Daniel Angelard
