@@ -1,0 +1,67 @@
+
+body {
+    background-color: grey;
+}
+/*--- navigation bar ---*/
+.navbar {
+    background:#B0C4DE;
+}
+.nav-link,
+.navbar-brand {
+    color: #047bfb;
+    cursor: pointer;
+}
+.nav-link {
+    margin-right: 1em !important;
+}
+.nav-link:hover {
+    color: #5F9EA0;
+}
+.navbar-collapse {
+    justify-content:flex-end;
+
+}
+.description {
+  left: 50%;
+  position: absolute;
+  top: 45%;
+  transform: translate(-50%, -55%);
+  text-align: center;
+}
+.description h1 {
+  color: #6ab334;
+}
+.description h2 {
+  color: #6ab334;
+}
+
+
+.description p {
+  color: #fff;
+  font-size: 1.3rem;
+  line-height: 1.5;
+}
+.description button {
+  border:1px solid #6ab446;
+  background:#6ab446;
+  border-radius: 0;
+  color:#fff;
+}
+.description button:hover {
+  border:1px solid #fff;
+  background:#fff;
+  color:#000;
+}
+.page-footer {
+  background-color: #222;
+  color: #ccc;
+  padding: 60px 0 30px;
+}
+.footer-copyright {
+  color: #666;
+  padding: 40px 0;
+}
+img {
+    max-width: 100%;
+    height: auto;
+}

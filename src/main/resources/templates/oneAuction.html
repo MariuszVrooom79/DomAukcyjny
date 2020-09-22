@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <link rel="stylesheet" type="text/css" href="/mainNav.css">
+    <link rel="stylesheet" type="text/css" href="/oneAuc.css">
+
+
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+
+    <header>
+
+        <!---------------------------------------------- NAVBAR ----------------------------------------------->
+        <title>AudioFeel</title>
+        <nav class="navbar navbar-expand-md">
+            <a href="/main"> <img src="http://server107178.nazwa.pl/Priv/Zdjecia/bidder/LogoB.png" alt="logo" width="150px"></a>
+            <button class="navbar-toggler navbar-dark" type="button" data-toggle="collapse" data-target="#main-navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="main-navigation">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/main">Aukcje</a>
+                    </li>
+
+                </ul>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/logowanie">Logowanie</a>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/rejestracja">Rejestracja</a>
+                    </li>
+                    <a class="nav-link" href="/audio">Wystaw aukcje</a>
+                    </li>
+                    <a class="nav-link" href="/user">Twoje aukcje</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+        <main >
+
+            <tr th:each="oneAuction : ${oneAuction}">
+
+            <center>
+            <div class="one">
+                <a href="#"><img style="width:max-content"src="http://server107178.nazwa.pl/Priv/Zdjecia/bidder/p1.jpeg" alt=".."></a>
+
+                <h1 class="card-text" th:text="${oneAuction.auctionname}"></h1>
+                <p class="card-text" th:text=" Cena + ${oneAuction.price} + zł"></p>
+
+                    <form>
+                        <input type="text" id="newPrice" class="fadeIn second" name="newPrice" placeholder="Podaj twoją cenę">
+                    </form>
+                <br>
+                    <button href="/user" type="button" class="btn btn-succes btn-xs">Przebij</button>
+            </div>
+            </center>
+            <div class="two">
+                <p class="card-text" th:text="${oneAuction.description}"></p>
+                  </div>
+
+        </main>
+
+
+
+        <div class="right-sidebar" >
+            <div class="right">
+            <h4> Aukcje wygrywa : </h4>
+            <p th:text="${oneAuction.owner}"></p>
+            <p th:text="${oneAuction.highestBitter}"></p>
+            </div>
+        </div>
+    </tr>
+
+</head>
+
+
+<body>
+
+
+
+
+</body>
+
+    <footer >
+
+
+
+
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-8 col-sm-12">
+                    <h6 class="text-uppercase font-weight-bold">W razie jakichkolwiek pytań skontaktuj się z nami</h6>
+                    <p></p>
+                    <p></p>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-12">
+                    <h6 class="text-uppercase font-weight-bold">Kontakt</h6>
+                    <p>Warszawa 00-000, ul. Hoża 00/00
+                        <a href="mailto:mariusz.klimkiewicz.bhp@gmail.com">
+                            bidder@gmail.com
+                        </a>
+                </div>
+            </div>
+        </div>
+            <div class="footer-copyright text-center">© 2020 Copyright: bidder.pl
+
+            </div>
+
+
+            <!----------------------------Navbar ------------>
+            <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+                    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+                    crossorigin="anonymous"></script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+                    integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+                    crossorigin="anonymous"></script>
+            <!----------------------------- Login Formularz ----->
+            <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+            <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
+
+    </footer>
+</html>

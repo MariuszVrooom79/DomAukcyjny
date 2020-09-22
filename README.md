@@ -1,2 +1,0 @@
-# DomAukcyjny
-Bidder

@@ -1,0 +1,49 @@
+body {
+  display: grid;
+  height: 100vh;
+  grid-template: auto 1fr auto / auto 1fr auto;
+  font-family: system-ui, sans-serif;
+}
+
+header {
+
+  grid-column: 1 / 4;
+}
+
+.left-sidebar {
+  background: lightblue;
+  grid-column: 1 / 2;
+}
+
+main {
+  background: white;
+  grid-column: 2 / 3;
+}
+
+.right-sidebar {
+  background: lightgray;
+  grid-column: 3 / 4;
+
+}
+
+footer {
+  background: wheat;
+  padding: 2rem;
+  text-align: center;
+  grid-column: 1 / 4;
+}
+.one{
+  max-width: 240px;
+  float: left;
+  margin-top: 40px;
+  margin-left: 250px;
+  margin-right: 40px;
+  margin-bottom: 20px;
+}
+.two{
+  flex-flow: column;
+  margin-top: 40px;
+}
+.right{
+  margin: 30px;
+}

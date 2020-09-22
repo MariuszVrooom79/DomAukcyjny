@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <link rel="stylesheet" type="text/css" href="mainNav.css">
+    <link rel="stylesheet" type="text/css" href="UserPanel.css">
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+</head>
+<body>
+
+
+<!---------------------------------------------- NAVBAR ----------------------------------------------->
+<title>AudioFeel</title>
+<nav class="navbar navbar-expand-md">
+    <a href="/main"> <img src="http://server107178.nazwa.pl/Priv/Zdjecia/bidder/LogoB.png" alt="logo" width="150px"></a>
+    <button class="navbar-toggler navbar-dark" type="button" data-toggle="collapse" data-target="#main-navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="main-navigation">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="/main">Aukcje</a>
+            </li>
+        </ul>
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="/logowanie">Logowanie</a>
+            <li class="nav-item">
+                <a class="nav-link" href="/rejestracja">Rejestracja</a>
+            </li>
+            <a class="nav-link" href="/audio">Wystaw aukcję</a>
+            </li>
+            <a class="nav-link" href="/user">Twoje aukcje</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<!----------------------------------------------END NAVBAR----------------------------------------------->
+<div class="panel">
+    <div class="panel-left">
+        <h1 class="panel-title"> Twoja sprzedaż </h1>
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col"># Aukcji</th>
+                <th scope="col">Nazwa przedmiotu</th>
+                <th scope="col">Aktualna cena</th>
+                <th scope="col">Data rozpoczecia</th>
+                <th scope="col">Czas rozpoczecia</th>
+            </tr>
+            </thead>
+            <tbody>
+
+            <tr th:each="ownerList : ${ownerList}">
+                <td th:text="${ownerList.id}"></td>
+                <td th:text="${ownerList.auctionname}"></td>
+                <td th:text="${ownerList.price}"></td>
+                <td th:text="${ownerList.date}"></td>
+                <td th:text="${ownerList.time}"></td>
+                <td><a th:href="@{'/one/' + ${ownerList.id}}" class="buttonZobacz" >Zobacz</a> </td>
+                <td><a th:href="@{'/one/' + ${ownerList.id}}" class="buttonZobacz" >Edytuj</a> </td>
+                <td><a th:href="@{'/auction-delete/' + ${ownerList.id}}" class="buttonDel" >Usuń</a> </td>
+
+
+
+            </tbody>
+        </table>
+        <div>
+            <a href="#" class="btn btn-primary btn-sm active" role="button" aria-pressed="true">Sprzedane</a>
+            <a href="#" class="btn btn-secondary btn-sm active" role="button" aria-pressed="true">Wypłać</a>
+        </div>
+        <a href="/audio" class="btn  btn-success btn-sm active" role="button" aria-pressed="true">Wystaw przedmiot</a>
+
+    </div>
+
+    <div class="panel-right">
+        <div class="panel-logo">
+            <div>
+                <img src="http://server107178.nazwa.pl/Priv/Zdjecia/bidder/avatUser.png" alt="logo" width="180px">
+            </div>
+            <div class="panel-logo-right">
+                Cześć <span th:text="${username}"/>
+                <div>User</div>
+                <a href="#" class="btn btn-secondary btn-sm active" role="button" aria-pressed="true">Zmiana hasła</a>
+                <a href="/logout" class="btn btn-danger" role="button" aria-pressed="true">Logout</a>
+            </div>
+        </div>
+        <div class="btn-under-logo">
+            <a href="#" class="btn btn-secondary btn-sm active" role="button" aria-pressed="true">Kupione</a>
+            <a href="#" class="btn btn-secondary btn-sm active" role="button" aria-pressed="true">Licytuje</a>
+
+        </div>
+
+    </div>
+</div>
+<div class="myForm">
+
+    <form th:action="@{/save}" method="post">
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Update or Create</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                        <div class="form-group">
+                            <label for="id" class="col-form-label">Recipient :</label>
+                            <input type="text" class="form-control" id="id" name="id" value=""/>
+                        </div>
+                    <div class="form-group">
+                        <label for="name" class="col-form-label">Name :</label>
+                        <input type="text" class="form-control" id="name" name="name" value=""/>
+                    </div>
+                    <div class="form-group">
+                        <label for="price" class="col-form-label">Cena :</label>
+                        <input type="text" class="form-control" id="price" name="price" value=""/>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <input type="submit" class="btn btn-primary" value="save"/>
+                </div>
+            </div>
+        </div>
+    </div>
+    </form>
+    </tr>
+</div>
+<h1></h1>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
